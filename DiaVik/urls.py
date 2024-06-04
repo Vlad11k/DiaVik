@@ -21,7 +21,6 @@ from django.urls import path, include
 
 from DiaVik import settings
 from users import views
-from users.views import LoginUser
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
