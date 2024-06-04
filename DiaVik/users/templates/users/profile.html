@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <a class="home-link" href="{% url 'home' %}">
+        <img class="home-btn" src="{% static '/images/home.svg' %}" alt="">
+    </a>
+    <div class="profile-content">
+        <h1>Профиль</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+                <p class="input-content"><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+
+            <p class="btn-content">
+                <button class="form-button" type="submit">Сохранить</button>
+            </p>
+        </form>
+    </div>
+{% endblock %}

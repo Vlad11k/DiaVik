@@ -1,0 +1,25 @@
+#header, .module caption,
+#changelist-filter h2 {
+    background: #000000;
+}
+
+* {
+    --breadcrumbs-bg: black;
+    --secondary: black;
+    --link-fg: black;
+    --button-bg: black;
+    --header-bg: black;
+}
+
+*:hover, *:focus {
+    --link-hover-color: #E7567FFF;
+    --button-hover-bg: #E7567FFF;
+}
+
+input[type=submit].default {
+    background: black;
+}
+
+input[type=submit].default:hover {
+    background: #E7567FFF;
+}

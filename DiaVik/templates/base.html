@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'css/base/base.css' %}" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="{% static 'images/DiavikLogo.ico' %}" type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="main">
+    {% block header %}
+    <header class="header">
+    <img class="logo" src="{% static 'images/DiavikLogo.png' %}" alt="Нет изображения">
+    </header>
+    {% endblock %}
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="home-content">
+        <div class="content-block-profile">
+            <div class="first-block-profile">
+                <div class="item-profile-image">
+                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                    <lord-icon
+                            src="https://cdn.lordicon.com/bgebyztw.json"
+                            trigger="hover"
+                            colors="primary:#121331,secondary:#000000"
+                            style="width:80px;height:80px">
+                    </lord-icon>
+                </div>
+                <div class="item-profile-text">
+                    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                </div>
+            </div>
+            <div class="second-block-profile">
+                <div class="item-edit">
+                    <a href="{% url 'profile' %}">
+                        <p>Изменить</p>
+                    </a>
+                </div>
+                <div class="item-exit">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn-exit" type="submit">Выйти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'orders' %}">
+            <div class="content-block-orders">
+                <div class="orders-container">
+                    <div class="item-orders">
+                        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                        <lord-icon
+                                src="https://cdn.lordicon.com/odavpkmb.json"
+                                trigger="hover"
+                                colors="primary:#121331,secondary:#000000"
+                                style="width:80px;height:80px">
+                        </lord-icon>
+                    </div>
+                    <h1>Мои заказы</h1>
+                </div>
+            </div>
+        </a>
+        <div class="content-block-discount">
+            <div class="sale-container">
+                <div class="item-sale">
+                    <h1>{{ client.percent }} %</h1>
+                </div>
+                <h1>скидка</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}

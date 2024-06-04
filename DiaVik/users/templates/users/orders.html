@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+     <a class="home-link" href="{% url 'home' %}">
+        <img class="home-btn" src="{% static '/images/home.svg' %}" alt="">
+    </a>
+    <div class="table-content">
+        <table>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ order.time_create|date:"d.m" }}</td>
+                    <td>{{ order.product }} {{ order.color }}</td>
+                    <td>{{ order.total_price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
